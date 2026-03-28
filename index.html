@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d1b2a">
+<title>NYAAY AI – Legal Clarity for Every Citizen</title>
+<link rel="manifest" href="manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0b1826; --deep: #111f30; --card: #13233a; --card2: #0f1d30;
+  --gold: #e8a020; --gold2: #f5c518; --gold3: rgba(232,160,32,0.12);
+  --teal: #2dd4bf; --rose: #f87171; --green: #4ade80; --violet: #a78bfa;
+  --text: #e2e8f0; --muted: #6b8499; --border: rgba(232,160,32,0.15);
+  --radius: 14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--navy);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+
+/* HEADER */
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;border-bottom:1px solid var(--border);
+  background:rgba(11,24,38,0.92);position:sticky;top:0;z-index:200;
+  backdrop-filter:blur(16px);
+}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;
+  box-shadow:0 0 20px rgba(232,160,32,0.3);
+}
+.logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.logo-sub{font-size:10px;color:var(--muted);letter-spacing:1px;margin-top:1px;}
+.header-right{display:flex;align-items:center;gap:10px;}
+.counter-badge{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(45,212,191,0.08);border:1px solid rgba(45,212,191,0.2);
+  border-radius:20px;padding:5px 12px;font-size:12px;color:var(--teal);
+}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+.header-btns{display:flex;gap:6px;}
+.hbtn{
+  padding:6px 12px;border-radius:8px;border:1px solid var(--border);
+  background:transparent;color:var(--muted);font-size:12px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all .2s;
+}
+.hbtn:hover{border-color:var(--gold);color:var(--gold);}
+.hbtn.active{background:var(--gold3);border-color:var(--gold);color:var(--gold);}
+
+/* HERO */
+.hero{text-align:center;padding:56px 20px 36px;position:relative;overflow:hidden;}
+.hero::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse,rgba(232,160,32,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(232,160,32,0.08);border:1px solid var(--border);
+  border-radius:20px;padding:6px 16px;font-size:12px;color:var(--gold);
+  margin-bottom:20px;letter-spacing:.5px;
+}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5.5vw,52px);font-weight:900;line-height:1.1;margin-bottom:16px;}
+.hero h1 span{background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:15px;color:var(--muted);max-width:480px;margin:0 auto 24px;line-height:1.75;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:8px;}
+.pill{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;padding:5px 14px;font-size:12px;color:var(--muted);
+}
+
+/* STORY BANNER */
+.story-banner{
+  max-width:780px;margin:0 auto 20px;padding:0 20px;
+}
+.story-card{
+  background:linear-gradient(135deg,rgba(167,139,250,0.08),rgba(45,212,191,0.06));
+  border:1px solid rgba(167,139,250,0.2);border-radius:var(--radius);
+  padding:16px 20px;display:flex;align-items:center;gap:16px;cursor:pointer;
+  transition:all .2s;
+}
+.story-card:hover{border-color:rgba(167,139,250,0.4);transform:translateY(-1px);}
+.story-avatar{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),var(--teal));
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+}
+.story-text h4{font-size:14px;font-weight:500;margin-bottom:3px;color:var(--text);}
+.story-text p{font-size:12px;color:var(--muted);line-height:1.5;}
+.story-cta{margin-left:auto;padding:7px 14px;border-radius:8px;border:1px solid rgba(167,139,250,0.3);background:transparent;color:var(--violet);font-size:12px;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.story-cta:hover{background:rgba(167,139,250,0.1);}
+
+/* MAIN LAYOUT */
+.main{max-width:780px;margin:0 auto 80px;padding:0 20px;}
+
+/* SETTINGS CARD */
+.settings-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:16px;}
+.slabel{font-size:11px;font-weight:600;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.api-row{display:flex;gap:8px;align-items:center;}
+input[type=password],input[type=text]{
+  flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:9px;padding:10px 14px;color:var(--text);
+  font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border .2s;
+}
+input:focus{border-color:var(--gold);}
+input::placeholder{color:var(--muted);}
+.api-link{font-size:11px;color:var(--teal);text-decoration:none;white-space:nowrap;}
+.api-link:hover{text-decoration:underline;}
+.lang-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.lang-btn{
+  padding:7px 16px;border-radius:7px;border:1px solid var(--border);
+  background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;
+  font-size:12px;cursor:pointer;transition:all .2s;
+}
+.lang-btn.active{background:var(--gold3);border-color:var(--gold);color:var(--gold2);font-weight:500;}
+.lang-btn:hover:not(.active){border-color:rgba(232,160,32,0.4);color:var(--gold);}
+
+/* UPLOAD */
+.upload-zone{
+  background:var(--card);border:2px dashed var(--border);border-radius:var(--radius);
+  padding:36px 24px;text-align:center;cursor:pointer;position:relative;
+  transition:all .25s;margin-bottom:14px;
+}
+.upload-zone.drag{border-color:var(--gold);background:var(--gold3);}
+.upload-zone.done{border-style:solid;border-color:var(--teal);background:rgba(45,212,191,0.04);}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.upload-icon{font-size:36px;margin-bottom:10px;}
+.upload-title{font-size:16px;font-weight:500;margin-bottom:6px;}
+.upload-sub{font-size:12px;color:var(--muted);}
+.ocr-progress{
+  display:none;margin-top:12px;background:rgba(45,212,191,0.1);
+  border:1px solid rgba(45,212,191,0.2);border-radius:8px;padding:10px 14px;
+}
+.ocr-progress.show{display:block;}
+.ocr-bar-wrap{background:rgba(255,255,255,0.06);border-radius:4px;height:4px;margin-top:8px;overflow:hidden;}
+.ocr-bar{height:4px;background:var(--teal);border-radius:4px;width:0%;transition:width .3s;}
+.file-chip{
+  display:none;margin-top:10px;padding:8px 14px;
+  background:rgba(45,212,191,0.08);border:1px solid rgba(45,212,191,0.2);
+  border-radius:8px;font-size:12px;color:var(--teal);
+  align-items:center;gap:6px;
+}
+.file-chip.show{display:flex;}
+
+.or-line{text-align:center;color:var(--muted);font-size:12px;margin:12px 0;position:relative;}
+.or-line::before,.or-line::after{content:'';position:absolute;top:50%;width:44%;height:1px;background:var(--border);}
+.or-line::before{left:0;}.or-line::after{right:0;}
+
+textarea{
+  width:100%;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px;color:var(--text);
+  font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.75;
+  resize:vertical;min-height:130px;outline:none;transition:border .2s;
+}
+textarea:focus{border-color:var(--gold);}
+textarea::placeholder{color:var(--muted);}
+
+/* SAMPLE NOTICES */
+.samples{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.sample-chip{
+  padding:6px 14px;border-radius:20px;border:1px solid var(--border);
+  background:transparent;color:var(--muted);font-size:11px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all .2s;
+}
+.sample-chip:hover{border-color:var(--gold);color:var(--gold);background:var(--gold3);}
+
+/* ANALYZE BTN */
+.analyze-btn{
+  width:100%;padding:15px;border-radius:12px;border:none;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#0b1826;font-family:'Playfair Display',serif;
+  font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;
+  margin-top:14px;letter-spacing:.3px;position:relative;overflow:hidden;
+}
+.analyze-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transform:translateX(-100%);transition:transform .6s;}
+.analyze-btn:hover::after{transform:translateX(100%);}
+.analyze-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 32px rgba(232,160,32,0.3);}
+.analyze-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+
+/* LOADING */
+.loading{display:none;text-align:center;padding:48px 20px;}
+.loading.show{display:block;}
+.spinner{width:44px;height:44px;border:2.5px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-steps{display:flex;flex-direction:column;gap:8px;margin-top:16px;max-width:360px;margin-inline:auto;}
+.load-step{
+  display:flex;align-items:center;gap:10px;background:var(--card);
+  border:1px solid var(--border);border-radius:9px;padding:9px 14px;
+  font-size:12px;opacity:0;animation:fadeup .4s forwards;
+}
+.load-step:nth-child(1){animation-delay:.3s;}
+.load-step:nth-child(2){animation-delay:1.1s;}
+.load-step:nth-child(3){animation-delay:2s;}
+.load-step:nth-child(4){animation-delay:2.8s;}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ERROR */
+.err{display:none;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.25);border-radius:10px;padding:14px 18px;color:var(--rose);font-size:13px;margin-top:12px;}
+.err.show{display:block;}
+
+/* ========== RESULTS ========== */
+.results{display:none;}
+.results.show{display:block;}
+
+/* VERDICT BANNER */
+.verdict{
+  border-radius:var(--radius);padding:20px 24px;margin-bottom:16px;
+  display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;
+}
+.verdict.safe{background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.25);}
+.verdict.moderate{background:rgba(232,160,32,0.08);border:1px solid rgba(232,160,32,0.25);}
+.verdict.urgent{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.3);}
+.verdict-icon{font-size:36px;flex-shrink:0;}
+.verdict-text h3{font-size:18px;font-weight:600;margin-bottom:4px;}
+.verdict.safe .verdict-text h3{color:var(--green);}
+.verdict.moderate .verdict-text h3{color:var(--gold2);}
+.verdict.urgent .verdict-text h3{color:var(--rose);}
+.verdict-text p{font-size:13px;color:var(--muted);line-height:1.5;}
+.risk-score{
+  margin-left:auto;text-align:center;flex-shrink:0;
+}
+.risk-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;line-height:1;}
+.verdict.safe .risk-num{color:var(--green);}
+.verdict.moderate .risk-num{color:var(--gold2);}
+.verdict.urgent .risk-num{color:var(--rose);}
+.risk-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+
+/* COUNTDOWN */
+.countdown-bar{
+  background:var(--card);border:1px solid rgba(232,160,32,0.3);
+  border-radius:var(--radius);padding:18px 24px;margin-bottom:16px;
+  display:flex;align-items:center;gap:20px;
+}
+.countdown-bar.hidden{display:none;}
+.cd-timer{display:flex;gap:12px;}
+.cd-unit{text-align:center;}
+.cd-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold2);line-height:1;}
+.cd-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;}
+.cd-sep{font-size:24px;color:var(--muted);align-self:center;margin-top:-8px;}
+.cd-info{flex:1;}
+.cd-info h4{font-size:14px;font-weight:500;margin-bottom:3px;}
+.cd-info p{font-size:12px;color:var(--muted);}
+.cd-cal-btn{
+  padding:8px 14px;border-radius:8px;border:1px solid var(--border);
+  background:transparent;color:var(--gold);font-size:12px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all .2s;
+}
+.cd-cal-btn:hover{background:var(--gold3);}
+
+/* INFO GRID */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:560px){.info-grid{grid-template-columns:1fr;}}
+.info-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;}
+.info-box.full{grid-column:1/-1;}
+.info-box.highlight{border-color:rgba(248,113,113,0.3);background:rgba(248,113,113,0.04);}
+.info-box.action-box{border-color:rgba(45,212,191,0.3);background:rgba(45,212,191,0.04);}
+.box-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+.info-box .box-label{color:var(--muted);}
+.info-box.highlight .box-label{color:var(--rose);}
+.info-box.action-box .box-label{color:var(--teal);}
+.box-content{font-size:14px;line-height:1.75;color:var(--text);}
+.box-content.hindi{font-family:'Noto Sans Devanagari',sans-serif;font-size:14px;line-height:1.95;}
+.rights-box{background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.2);}
+.rights-box .box-label{color:var(--violet);}
+
+/* ACTION STEPS */
+.step-list{list-style:none;}
+.step-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:flex-start;font-size:13px;}
+.step-list li:last-child{border-bottom:none;}
+.snum{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#0891b2);color:#0b1826;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+
+/* TYPE BADGE */
+.type-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;
+  background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.25);
+  color:var(--violet);margin-bottom:16px;
+}
+
+/* REPLY DRAFT */
+.reply-section{background:var(--card);border:1px solid rgba(232,160,32,0.2);border-radius:var(--radius);padding:18px 22px;margin-bottom:12px;}
+.reply-section textarea{min-height:100px;margin-top:10px;font-size:12px;}
+
+/* ACTION TOOLBAR */
+.action-toolbar{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;
+}
+.tool-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:9px 16px;border-radius:9px;border:1px solid var(--border);
+  background:var(--card);color:var(--text);font-size:12px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all .2s;
+}
+.tool-btn:hover{border-color:var(--gold);color:var(--gold);background:var(--gold3);}
+.tool-btn.wa{border-color:rgba(74,222,128,0.3);color:var(--green);}
+.tool-btn.wa:hover{background:rgba(74,222,128,0.08);}
+
+/* FOLLOW-UP CHAT */
+.chat-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;margin-bottom:12px;}
+.chat-messages{min-height:60px;max-height:280px;overflow-y:auto;margin-bottom:12px;display:flex;flex-direction:column;gap:10px;}
+.msg{padding:10px 14px;border-radius:10px;font-size:13px;line-height:1.6;max-width:90%;}
+.msg.user{background:var(--gold3);border:1px solid var(--border);margin-left:auto;color:var(--gold2);}
+.msg.ai{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);color:var(--text);}
+.msg.ai.hindi{font-family:'Noto Sans Devanagari',sans-serif;}
+.chat-input-row{display:flex;gap:8px;}
+.chat-input{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:9px;padding:9px 14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border .2s;}
+.chat-input:focus{border-color:var(--gold);}
+.chat-send{padding:9px 18px;border-radius:9px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0b1826;font-weight:600;cursor:pointer;font-size:13px;transition:all .2s;}
+.chat-send:hover{transform:translateY(-1px);}
+.chat-send:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+
+/* DISCLAIMER */
+.disclaimer{text-align:center;font-size:11px;color:var(--muted);padding:14px;background:rgba(255,255,255,0.02);border-radius:9px;border:1px solid rgba(255,255,255,0.04);margin-top:6px;}
+.reset-btn{display:block;margin:14px auto 0;padding:9px 24px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:all .2s;}
+.reset-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+/* VOICE BTN */
+.voice-btn{
+  display:flex;align-items:center;gap:6px;padding:9px 16px;
+  border-radius:9px;border:1px solid rgba(167,139,250,0.3);
+  background:rgba(167,139,250,0.06);color:var(--violet);
+  font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;
+}
+.voice-btn:hover{background:rgba(167,139,250,0.12);}
+.voice-btn.speaking{animation:voicepulse 1s infinite;}
+@keyframes voicepulse{0%,100%{box-shadow:0 0 0 0 rgba(167,139,250,0.4)}50%{box-shadow:0 0 0 8px rgba(167,139,250,0)}}
+
+/* SENIOR MODE */
+body.senior{font-size:120%;}
+body.senior .box-content{font-size:17px;}
+body.senior .analyze-btn{font-size:20px;padding:18px;}
+body.senior header{padding:16px 24px;}
+
+/* PRIVACY BADGE */
+.privacy-banner{
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  padding:10px;background:rgba(74,222,128,0.04);border-bottom:1px solid rgba(74,222,128,0.1);
+  font-size:11px;color:var(--muted);
+}
+.privacy-item{display:flex;align-items:center;gap:5px;}
+.privacy-item span{color:var(--green);}
+
+/* REDACT NOTICE */
+.redact-notice{
+  display:none;font-size:11px;color:var(--teal);
+  padding:6px 10px;background:rgba(45,212,191,0.06);
+  border-radius:6px;margin-top:8px;
+}
+.redact-notice.show{display:block;}
+
+/* TOOLTIP */
+.legal-term{border-bottom:1px dashed var(--gold);cursor:help;color:var(--gold2);position:relative;}
+.tooltip{
+  display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
+  background:var(--deep);border:1px solid var(--border);border-radius:8px;
+  padding:8px 12px;font-size:11px;color:var(--text);width:200px;text-align:center;z-index:100;
+  line-height:1.5;
+}
+.legal-term:hover .tooltip{display:block;}
+
+/* HISTORY */
+.history-section{max-width:780px;margin:0 auto 40px;padding:0 20px;display:none;}
+.history-section.show{display:block;}
+.history-item{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px 18px;margin-bottom:10px;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:14px;
+}
+.history-item:hover{border-color:var(--gold);transform:translateX(2px);}
+.hist-icon{font-size:22px;}
+.hist-info h4{font-size:13px;font-weight:500;margin-bottom:3px;}
+.hist-info p{font-size:11px;color:var(--muted);}
+.hist-risk{margin-left:auto;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;}
+
+/* NEARBY */
+.nearby-section{display:none;}
+.nearby-section.show{display:block;}
+</style>
+</head>
+<body>
+
+<!-- PRIVACY STRIP -->
+<div class="privacy-banner">
+  <div class="privacy-item"><span>🔒</span> No data stored on servers</div>
+  <div class="privacy-item"><span>🆓</span> 100% free, no registration</div>
+  <div class="privacy-item"><span>🛡️</span> PAN & Aadhaar auto-redacted</div>
+  <div class="privacy-item"><span>⚡</span> Powered by Groq AI</div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">⚖️</div>
+    <div>
+      <div class="logo-text">NYAAY AI</div>
+      <div class="logo-sub">Legal Clarity for Every Citizen</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="counter-badge"><div class="pulse"></div><span id="impactCount">0</span>&nbsp;notices explained</div>
+    <div class="header-btns">
+      <button class="hbtn" id="historyBtn" onclick="toggleHistory()">📂 History</button>
+      <button class="hbtn" id="seniorBtn" onclick="toggleSenior()">👴 Senior Mode</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">🏆 ET AI Hackathon 2026</div>
+  <h1>क्या आपको नोटिस मिला?<br><span>हम समझाएंगे।</span></h1>
+  <p>Upload any government or legal notice. Get instant clarity in your language — what happened, what to do, and when.</p>
+  <div class="pills">
+    <span class="pill">🏛️ Income Tax</span>
+    <span class="pill">🏠 Property</span>
+    <span class="pill">🚔 Traffic</span>
+    <span class="pill">⚖️ Court Summons</span>
+    <span class="pill">🏢 GST</span>
+    <span class="pill">👷 Labour</span>
+  </div>
+</div>
+
+<!-- SURESH STORY DEMO -->
+<div class="story-banner">
+  <div class="story-card" onclick="loadSureshStory()">
+    <div class="story-avatar">👨‍🌾</div>
+    <div class="story-text">
+      <h4>Try "Suresh's Story" — Live Demo</h4>
+      <p>A farmer from UP received an Income Tax notice he couldn't understand. See how Nyaay AI helped him in 30 seconds.</p>
+    </div>
+    <button class="story-cta">▶ Demo</button>
+  </div>
+</div>
+
+<!-- HISTORY -->
+<div class="history-section" id="historySection">
+  <div class="slabel" style="margin-bottom:12px;">📂 My Past Notices</div>
+  <div id="historyList"></div>
+</div>
+
+<!-- MAIN CARD -->
+<div class="main" id="mainSection">
+
+  <!-- SETTINGS -->
+  <div class="settings-card">
+    <div class="slabel">🌐 Explain in</div>
+    <div class="lang-row" id="langRow">
+      <button class="lang-btn active" data-lang="Hindi">हिंदी</button>
+      <button class="lang-btn" data-lang="Marathi">मराठी</button>
+      <button class="lang-btn" data-lang="Bengali">বাংলা</button>
+      <button class="lang-btn" data-lang="Tamil">தமிழ்</button>
+      <button class="lang-btn" data-lang="Telugu">తెలుగు</button>
+      <button class="lang-btn" data-lang="English">English</button>
+    </div>
+  </div>
+
+  <!-- UPLOAD -->
+  <div class="upload-zone" id="dropZone">
+    <input type="file" id="fileInput" accept=".txt,.pdf,.png,.jpg,.jpeg" />
+    <div class="upload-icon" id="uploadIcon">📄</div>
+    <div class="upload-title" id="uploadTitle">Drop notice here or click to upload</div>
+    <div class="upload-sub">Photo of notice (JPG/PNG) · PDF · Text file<br><strong style="color:var(--teal)">📸 OCR: We'll read text from your photo automatically</strong></div>
+    <div class="file-chip" id="fileChip"><span>📎</span><span id="fileName"></span></div>
+    <div class="ocr-progress" id="ocrProgress">
+      <div style="font-size:12px;color:var(--teal)">🔍 Reading text from image… <span id="ocrPct">0%</span></div>
+      <div class="ocr-bar-wrap"><div class="ocr-bar" id="ocrBar"></div></div>
+    </div>
+  </div>
+
+  <div class="redact-notice" id="redactNotice">🛡️ Personal information (PAN, Aadhaar, phone numbers) has been automatically redacted before analysis.</div>
+
+  <div class="or-line">OR paste text directly</div>
+
+  <textarea id="docText" placeholder="Paste the legal notice text here...&#10;&#10;Example: You are hereby required under Section 139(9) of the Income Tax Act to rectify defects in your Income Tax Return within 15 days…"></textarea>
+
+  <div style="margin-top:10px;">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">⚡ Sample notices to try:</div>
+    <div class="samples">
+      <button class="sample-chip" onclick="loadSample('it')">📋 Income Tax 139(9)</button>
+      <button class="sample-chip" onclick="loadSample('gst')">🏢 GST Notice</button>
+      <button class="sample-chip" onclick="loadSample('traffic')">🚔 Traffic Challan</button>
+      <button class="sample-chip" onclick="loadSample('property')">🏠 Property Tax</button>
+    </div>
+  </div>
+
+  <button class="analyze-btn" id="analyzeBtn" onclick="analyze()">⚖️ Analyse & Explain in <span id="btnLang">Hindi</span></button>
+  <div class="err" id="errBox"></div>
+
+  <!-- LOADING -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <div style="font-size:14px;font-weight:500;color:var(--gold)">Analysing your notice…</div>
+    <div class="load-steps">
+      <div class="load-step">📖 Extracting and reading legal text…</div>
+      <div class="load-step">🔍 Identifying notice type and sections…</div>
+      <div class="load-step">⚖️ Assessing urgency and risk level…</div>
+      <div class="load-step">✍️ Writing plain language explanation…</div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+
+    <!-- TYPE + VERDICT -->
+    <div class="type-badge" id="typeBadge">📋 Legal Notice</div>
+    <div class="verdict" id="verdictBanner">
+      <div class="verdict-icon" id="verdictIcon">✅</div>
+      <div class="verdict-text">
+        <h3 id="verdictTitle">Routine Notice</h3>
+        <p id="verdictDesc">No need to panic. This is a standard government communication.</p>
+      </div>
+      <div class="risk-score">
+        <div class="risk-num" id="riskNum">3</div>
+        <div class="risk-label">Risk / 10</div>
+      </div>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-bar" id="countdownBar">
+      <div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">⏰ Time Remaining</div>
+        <div class="cd-timer">
+          <div class="cd-unit"><div class="cd-num" id="cdDays">--</div><div class="cd-label">Days</div></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><div class="cd-num" id="cdHours">--</div><div class="cd-label">Hours</div></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><div class="cd-num" id="cdMins">--</div><div class="cd-label">Mins</div></div>
+        </div>
+      </div>
+      <div class="cd-info">
+        <h4 id="cdDeadline">Deadline detected</h4>
+        <p id="cdNote">Act before this date to avoid penalties</p>
+      </div>
+      <button class="cd-cal-btn" id="calBtn" onclick="downloadCalendar()">📅 Add to Calendar</button>
+    </div>
+
+    <!-- ACTION TOOLBAR -->
+    <div class="action-toolbar">
+      <button class="voice-btn" id="voiceBtn" onclick="speakExplanation()">🔊 Listen in <span id="voiceLang">Hindi</span></button>
+      <button class="tool-btn wa" onclick="shareWhatsApp()">💬 Share on WhatsApp</button>
+      <button class="tool-btn" onclick="printSummary()">🖨️ Print Summary</button>
+      <button class="tool-btn" onclick="generateReply()">✍️ Draft Reply Letter</button>
+    </div>
+
+    <!-- INFO GRID -->
+    <div class="info-grid">
+      <div class="info-box highlight">
+        <div class="box-label">🔴 क्या हुआ? / What Happened</div>
+        <div class="box-content" id="whatHappened"></div>
+      </div>
+      <div class="info-box" style="border-color:rgba(232,160,32,0.3);background:rgba(232,160,32,0.04);">
+        <div class="box-label" style="color:var(--gold);">⏰ Deadline</div>
+        <div class="box-content" id="deadlineText"></div>
+      </div>
+      <div class="info-box action-box full">
+        <div class="box-label">✅ Steps to Take / आपको क्या करना है</div>
+        <ul class="step-list" id="stepList"></ul>
+      </div>
+      <div class="info-box rights-box full">
+        <div class="box-label">🏛️ Your Rights / आपके अधिकार</div>
+        <div class="box-content" id="rightsText"></div>
+      </div>
+      <div class="info-box full" id="consequenceBox">
+        <div class="box-label" style="color:var(--rose);">⚠️ अगर नहीं किया तो? / If No Action</div>
+        <div class="box-content" id="consequenceText"></div>
+      </div>
+      <div class="info-box full">
+        <div class="box-label">📋 Full Explanation in <span id="explainLangLabel">Hindi</span></div>
+        <div class="box-content hindi" id="fullExplain"></div>
+      </div>
+    </div>
+
+    <!-- REPLY DRAFT -->
+    <div class="reply-section" id="replySection" style="display:none;">
+      <div class="slabel">✍️ Auto-Generated Reply Letter</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;margin-bottom:4px;">Edit before sending. Fill in [YOUR NAME] and [DATE].</div>
+      <textarea id="replyText" style="min-height:180px;"></textarea>
+      <button class="tool-btn" style="margin-top:8px;" onclick="copyReply()">📋 Copy Letter</button>
+    </div>
+
+    <!-- FOLLOW-UP CHAT -->
+    <div class="chat-section">
+      <div class="slabel" style="margin-bottom:12px;">💬 Ask a Follow-up Question</div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg ai">I've analysed your notice. Ask me anything about it — in Hindi, English, or any language you prefer. 🙏</div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" placeholder="e.g. मुझे Section 139(9) समझाओ... / What if I miss the deadline?" onkeydown="if(event.key==='Enter')sendChat()"/>
+        <button class="chat-send" id="chatSend" onclick="sendChat()">Send</button>
+      </div>
+    </div>
+
+    <div class="disclaimer">⚠️ Nyaay AI provides simplified understanding only — not legal advice. For serious matters, please consult a qualified advocate. | ये कानूनी सलाह नहीं है।</div>
+    <button class="reset-btn" onclick="resetAll()">← Analyse Another Notice</button>
+  </div>
+</div>
+
+<!-- TESSERACT OCR -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+let selectedLang = 'Hindi';
+let currentResult = null;
+let currentText = '';
+let isSpeaking = false;
+let countdownInterval = null;
+let deadlineDate = null;
+
+// Auto-detect browser language
+const browserLang = navigator.language || '';
+const langMap = {'hi':'Hindi','mr':'Marathi','bn':'Bengali','ta':'Tamil','te':'Telugu','en':'English'};
+const detected = langMap[browserLang.split('-')[0]];
+if(detected){ selectedLang = detected; }
+
+// Impact counter
+let count = parseInt(localStorage.getItem('nyaay_count')||'247');
+document.getElementById('impactCount').textContent = count.toLocaleString('en-IN');
+
+// ============================================================
+// LANGUAGE SELECTOR
+// ============================================================
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  if(btn.dataset.lang === selectedLang) btn.classList.add('active');
+  else btn.classList.remove('active');
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedLang = btn.dataset.lang;
+    document.getElementById('btnLang').textContent = selectedLang;
+    document.getElementById('voiceLang').textContent = selectedLang;
+  });
+});
+document.getElementById('btnLang').textContent = selectedLang;
+document.getElementById('voiceLang').textContent = selectedLang;
+
+// ============================================================
+// FILE HANDLING + OCR
+// ============================================================
+const dropZone = document.getElementById('dropZone');
+dropZone.addEventListener('dragover', e=>{e.preventDefault();dropZone.classList.add('drag');});
+dropZone.addEventListener('dragleave', ()=>dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop', e=>{e.preventDefault();dropZone.classList.remove('drag');handleFile(e.dataTransfer.files[0]);});
+document.getElementById('fileInput').addEventListener('change', e=>handleFile(e.target.files[0]));
+
+async function handleFile(file) {
+  if(!file) return;
+  document.getElementById('fileName').textContent = file.name;
+  document.getElementById('fileChip').classList.add('show');
+  dropZone.classList.add('done');
+
+  if(file.type.startsWith('image/')) {
+    // OCR with Tesseract
+    document.getElementById('ocrProgress').classList.add('show');
+    document.getElementById('uploadTitle').textContent = 'Reading your notice…';
+    try {
+      const result = await Tesseract.recognize(file, 'eng+hin', {
+        logger: m => {
+          if(m.status === 'recognizing text') {
+            const pct = Math.round(m.progress*100);
+            document.getElementById('ocrPct').textContent = pct+'%';
+            document.getElementById('ocrBar').style.width = pct+'%';
+          }
+        }
+      });
+      document.getElementById('docText').value = result.data.text;
+      document.getElementById('uploadTitle').textContent = '✅ Text extracted from image!';
+      document.getElementById('ocrProgress').classList.remove('show');
+    } catch(e) {
+      document.getElementById('uploadTitle').textContent = 'OCR failed — please paste text below';
+      document.getElementById('ocrProgress').classList.remove('show');
+    }
+  } else if(file.name.endsWith('.txt')) {
+    const reader = new FileReader();
+    reader.onload = e => { document.getElementById('docText').value = e.target.result; };
+    reader.readAsText(file);
+    document.getElementById('uploadTitle').textContent = '✅ File loaded!';
+  } else {
+    document.getElementById('uploadTitle').textContent = 'PDF detected — paste text below';
+  }
+}
+
+// ============================================================
+// PRIVACY REDACTION
+// ============================================================
+function redactText(text) {
+  let redacted = text;
+  // PAN: ABCDE1234F pattern
+  redacted = redacted.replace(/[A-Z]{5}[0-9]{4}[A-Z]/g, '[PAN REDACTED]');
+  // Aadhaar: 12 digits
+  redacted = redacted.replace(/\b\d{4}\s?\d{4}\s?\d{4}\b/g, '[AADHAAR REDACTED]');
+  // Phone numbers
+  redacted = redacted.replace(/\b[6-9]\d{9}\b/g, '[PHONE REDACTED]');
+  const wasRedacted = redacted !== text;
+  if(wasRedacted) document.getElementById('redactNotice').classList.add('show');
+  return redacted;
+}
+
+// ============================================================
+// SAMPLE NOTICES
+// ============================================================
+const samples = {
+  it: `INCOME TAX DEPARTMENT
+Government of India
+
+Notice under Section 139(9) of the Income Tax Act, 1961
+
+To: Suresh Kumar Yadav
+Village Rampur, District Unnao, Uttar Pradesh
+
+PAN: ABCSY1234K
+
+Dear Sir/Madam,
+
+Your Income Tax Return for Assessment Year 2024-25 filed on 31st July 2024 has been found DEFECTIVE under Section 139(9) of the Income Tax Act, 1961.
+
+The defect identified is: Mismatch between income declared and Form 26AS entries. Total income declared: Rs. 3,85,000. Income as per Form 26AS: Rs. 5,12,000.
+
+You are hereby required to rectify the defect within 15 days from the date of this notice i.e. on or before 15th March 2025, failing which your return shall be treated as an invalid return and you will be deemed to have not filed the return.
+
+This may result in levy of penalty under Section 271F amounting to Rs. 10,000 and prosecution under Section 276CC.
+
+Issued by: Income Tax Officer, Ward 3(1), Lucknow
+Date: 28th February 2025
+DIN: ITBA/AST/S/139(9)/2024-25/1047821`,
+
+  gst: `GST DEPARTMENT — NOTICE OF SHOW CAUSE
+Notice No: GSTIN-09ABCDE1234F1Z5/SCN/2025/001
+Date: 1st March 2025
+
+To: ABC Traders, Shop No. 12, Gandhi Market, Kanpur
+
+Subject: Show Cause Notice under Section 73 of CGST Act 2017
+
+It has been noticed that you have short-paid GST of Rs. 45,000 for the period April 2024 to September 2024. You are required to show cause within 30 days as to why the said amount along with interest and penalty should not be recovered from you.
+
+Please appear before the undersigned on 5th April 2025 at 11:00 AM.
+
+Failure to respond may result in ex-parte order.`,
+
+  traffic: `TRAFFIC POLICE — E-CHALLAN NOTICE
+Challan No: DL-2025-0234871
+Date of Violation: 10th March 2025
+
+Vehicle No: UP32AB1234
+Owner: Ramesh Sharma
+Violation: Jumping Red Signal (Section 119 MV Act)
+Fine Amount: Rs. 1,000
+Location: Hazratganj Crossing, Lucknow
+
+You are required to pay the fine within 60 days either online at echallan.parivahan.gov.in or at the nearest traffic court. Failure to pay may result in suspension of your driving licence and vehicle registration.`,
+
+  property: `MUNICIPAL CORPORATION — PROPERTY TAX NOTICE
+Notice No: MC/PT/2024-25/00892
+Date: 15th February 2025
+
+To: Meera Devi, H.No. 45, Sector 12, Noida
+
+Property Tax outstanding for year 2023-24: Rs. 8,500
+Late payment penalty (12% per annum): Rs. 1,020
+Total Amount Due: Rs. 9,520
+
+You are hereby directed to pay the above amount within 30 days from the date of this notice. Failure to pay will result in attachment of the property and recovery proceedings under Section 172 of UP Municipal Corporation Act.`
+};
+
+function loadSample(type) {
+  document.getElementById('docText').value = samples[type];
+  document.getElementById('docText').scrollIntoView({behavior:'smooth'});
+}
+
+function loadSureshStory() {
+  document.getElementById('docText').value = samples.it;
+  document.getElementById('docText').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{ document.getElementById('docText').style.borderColor='var(--gold)'; setTimeout(()=>{document.getElementById('docText').style.borderColor='';},1500); },300);
+}
+
+// ============================================================
+// MAIN ANALYSIS
+// ============================================================
+async function analyze() {
+  const rawText = document.getElementById('docText').value.trim();
+  document.getElementById('errBox').classList.remove('show');
+
+  if(!rawText) { showErr('Please paste the notice text or upload a file.'); return; }
+
+  const docText = redactText(rawText);
+  currentText = docText;
+
+  document.getElementById('analyzeBtn').disabled = true;
+  document.getElementById('loading').classList.add('show');
+  document.getElementById('results').classList.remove('show');
+  if(countdownInterval) clearInterval(countdownInterval);
+
+  const prompt = `You are Nyaay AI — a legal document simplification assistant for Indian citizens. You specialize in Income Tax, GST, Traffic, Property and other government notices.
+
+Analyse the document below and respond ONLY with a valid JSON object. No markdown, no preamble.
+
+JSON structure:
+{
+  "notice_type": "Short type label e.g. Income Tax Notice / GST Notice / Traffic Challan",
+  "notice_type_emoji": "One relevant emoji",
+  "risk_score": <integer 1-10, where 1=routine paperwork, 10=imminent legal action>,
+  "risk_level": "safe|moderate|urgent",
+  "should_panic": false,
+  "verdict_title": "Short reassuring or alarming verdict in ${selectedLang}",
+  "verdict_desc": "One sentence explaining the severity in ${selectedLang}",
+  "what_happened": "2-3 sentences in ${selectedLang} — what this notice is about in simple words",
+  "deadline_text": "The deadline in ${selectedLang}. If none: null",
+  "deadline_days": <number of days from today until deadline, or null if unknown>,
+  "steps": ["Step 1 in ${selectedLang}", "Step 2 in ${selectedLang}", "Step 3 in ${selectedLang}", "Step 4 if needed"],
+  "rights": "2-3 sentences in ${selectedLang} explaining recipient's rights and options",
+  "consequence": "What happens if ignored, in ${selectedLang}. null if not mentioned",
+  "full_explanation": "Complete explanation in ${selectedLang} in simple everyday language. Explain every legal term. Be thorough but clear.",
+  "authenticity_flags": ["Any missing required elements or suspicious aspects — empty array if notice seems valid"],
+  "confidence": "high|medium|low"
+}
+
+Document:
+---
+${docText.slice(0,3500)}
+---
+
+Respond ONLY with the JSON object.`;
+
+  try {
+    const resp = await fetch('http://localhost:3000/api/groq', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({prompt})
+    });
+    if(!resp.ok) { const e=await resp.json(); throw new Error(e.error||'Server error'); }
+    const data = await resp.json();
+    currentResult = data;
+    displayResults(data, docText);
+    saveToHistory(data, docText.slice(0,100));
+    incrementCounter();
+  } catch(e) {
+    document.getElementById('loading').classList.remove('show');
+    document.getElementById('analyzeBtn').disabled = false;
+    showErr('Error: '+e.message+'\n\nMake sure the server is running: node server.js');
+  }
+}
+
+// ============================================================
+// DISPLAY RESULTS
+// ============================================================
+function displayResults(r, docText) {
+  document.getElementById('loading').classList.remove('show');
+  document.getElementById('analyzeBtn').disabled = false;
+
+  // Type badge
+  document.getElementById('typeBadge').innerHTML = `${r.notice_type_emoji||'📋'} ${r.notice_type||'Legal Notice'}`;
+
+  // Verdict
+  const v = document.getElementById('verdictBanner');
+  v.className = 'verdict ' + (r.risk_level||'safe');
+  document.getElementById('verdictIcon').textContent = r.risk_level==='urgent'?'🚨':r.risk_level==='moderate'?'⚠️':'✅';
+  document.getElementById('verdictTitle').textContent = r.verdict_title||'Routine Notice';
+  document.getElementById('verdictDesc').textContent = r.verdict_desc||'';
+  document.getElementById('riskNum').textContent = r.risk_score||'3';
+
+  // Countdown
+  const cb = document.getElementById('countdownBar');
+  if(r.deadline_days && r.deadline_days > 0) {
+    cb.classList.remove('hidden');
+    deadlineDate = new Date();
+    deadlineDate.setDate(deadlineDate.getDate() + r.deadline_days);
+    document.getElementById('cdDeadline').textContent = r.deadline_text||'Deadline detected';
+    document.getElementById('cdNote').textContent = r.deadline_days <= 7 ? '🔴 Urgent — act immediately!' : r.deadline_days <= 15 ? '🟡 Act soon' : '🟢 You have time — but don\'t delay';
+    startCountdown(deadlineDate);
+  } else {
+    cb.classList.add('hidden');
+  }
+
+  // Content
+  document.getElementById('whatHappened').textContent = r.what_happened||'—';
+  document.getElementById('deadlineText').textContent = r.deadline_text||'No specific deadline mentioned';
+  document.getElementById('rightsText').textContent = r.rights||'—';
+  document.getElementById('explainLangLabel').textContent = selectedLang;
+  document.getElementById('fullExplain').textContent = r.full_explanation||'—';
+
+  // Steps
+  const sl = document.getElementById('stepList');
+  sl.innerHTML='';
+  (r.steps||[]).forEach((s,i)=>{
+    const li=document.createElement('li');
+    li.innerHTML=`<div class="snum">${i+1}</div><div>${s}</div>`;
+    sl.appendChild(li);
+  });
+
+  // Consequence
+  const cbox = document.getElementById('consequenceBox');
+  if(r.consequence && r.consequence!=='null'){
+    document.getElementById('consequenceText').textContent=r.consequence;
+    cbox.style.display='block';
+  } else { cbox.style.display='none'; }
+
+  // Authenticity flags
+  if(r.authenticity_flags && r.authenticity_flags.length>0){
+    const flagDiv = document.createElement('div');
+    flagDiv.className='info-box full';
+    flagDiv.style.borderColor='rgba(248,113,113,0.3)';
+    flagDiv.innerHTML=`<div class="box-label" style="color:var(--rose)">⚠️ Authenticity Check</div><div class="box-content">${r.authenticity_flags.join('<br>')}</div>`;
+    document.getElementById('fullExplain').closest('.info-box').after(flagDiv);
+  }
+
+  // Chat init
+  document.getElementById('chatMessages').innerHTML='<div class="msg ai">I\'ve analysed your notice. Ask me anything — in Hindi, English, or any language. 🙏</div>';
+
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ============================================================
+// COUNTDOWN TIMER
+// ============================================================
+function startCountdown(targetDate) {
+  if(countdownInterval) clearInterval(countdownInterval);
+  function tick(){
+    const diff = targetDate - new Date();
+    if(diff<=0){ clearInterval(countdownInterval); return; }
+    const days=Math.floor(diff/86400000);
+    const hours=Math.floor((diff%86400000)/3600000);
+    const mins=Math.floor((diff%3600000)/60000);
+    document.getElementById('cdDays').textContent=String(days).padStart(2,'0');
+    document.getElementById('cdHours').textContent=String(hours).padStart(2,'0');
+    document.getElementById('cdMins').textContent=String(mins).padStart(2,'0');
+  }
+  tick();
+  countdownInterval=setInterval(tick,60000);
+}
+
+// ============================================================
+// CALENDAR EXPORT
+// ============================================================
+function downloadCalendar() {
+  if(!deadlineDate||!currentResult) return;
+  const title=encodeURIComponent('NYAAY AI: '+( currentResult.notice_type||'Legal Notice')+' Deadline');
+  const dateStr=deadlineDate.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  const remind=new Date(deadlineDate);
+  remind.setDate(remind.getDate()-3);
+  const remStr=remind.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  const ics=`BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${decodeURIComponent(title)}\nDTSTART:${dateStr}\nDTEND:${dateStr}\nDESCRIPTION:${currentResult.notice_type||'Legal Notice'} deadline. Analysed by Nyaay AI.\nBEGIN:VALARM\nTRIGGER:-P3D\nACTION:DISPLAY\nDESCRIPTION:Reminder: 3 days until your notice deadline!\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR`;
+  const blob=new Blob([ics],{type:'text/calendar'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='nyaay-deadline.ics';
+  a.click();
+}
+
+// ============================================================
+// VOICE READOUT
+// ============================================================
+function speakExplanation() {
+  if(!currentResult) return;
+  if(isSpeaking){ speechSynthesis.cancel(); isSpeaking=false; document.getElementById('voiceBtn').innerHTML=`🔊 Listen in <span id="voiceLang">${selectedLang}</span>`; return; }
+  const text = currentResult.what_happened + '. ' + currentResult.full_explanation;
+  const utter = new SpeechSynthesisUtterance(text);
+  const langCodes={'Hindi':'hi-IN','Marathi':'mr-IN','Bengali':'bn-IN','Tamil':'ta-IN','Telugu':'te-IN','English':'en-IN'};
+  utter.lang = langCodes[selectedLang]||'hi-IN';
+  utter.rate = 0.85;
+  utter.onend = ()=>{ isSpeaking=false; document.getElementById('voiceBtn').innerHTML=`🔊 Listen in <span id="voiceLang">${selectedLang}</span>`; };
+  speechSynthesis.speak(utter);
+  isSpeaking=true;
+  document.getElementById('voiceBtn').innerHTML='⏹ Stop';
+  document.getElementById('voiceBtn').classList.add('speaking');
+}
+
+// ============================================================
+// WHATSAPP SHARE
+// ============================================================
+function shareWhatsApp() {
+  if(!currentResult) return;
+  const msg=`*NYAAY AI — Notice Summary*\n\n📋 *Type:* ${currentResult.notice_type}\n\n❓ *What happened:*\n${currentResult.what_happened}\n\n✅ *Steps to take:*\n${(currentResult.steps||[]).map((s,i)=>`${i+1}. ${s}`).join('\n')}\n\n⏰ *Deadline:* ${currentResult.deadline_text||'Check notice'}\n\n_Analysed by Nyaay AI — Free legal clarity for all citizens_`;
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+
+// ============================================================
+// PRINT
+// ============================================================
+function printSummary() {
+  const printWin=window.open('','_blank');
+  printWin.document.write(`<html><head><title>Nyaay AI Summary</title>
+  <style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;color:#111;line-height:1.7;}
+  h1{font-size:24px;border-bottom:2px solid #e8a020;padding-bottom:8px;}
+  h2{font-size:16px;color:#444;margin-top:24px;}
+  .badge{display:inline-block;padding:4px 12px;background:#fff3e0;border:1px solid #e8a020;border-radius:4px;font-size:13px;font-weight:bold;}
+  .step{padding:6px 0;border-bottom:1px solid #eee;}
+  .footer{margin-top:40px;font-size:12px;color:#888;border-top:1px solid #eee;padding-top:12px;}
+  </style></head><body>
+  <h1>⚖️ NYAAY AI — Legal Notice Summary</h1>
+  <div class="badge">${currentResult.notice_type_emoji} ${currentResult.notice_type}</div>
+  <h2>What Happened</h2><p>${currentResult.what_happened}</p>
+  <h2>Deadline</h2><p><strong>${currentResult.deadline_text||'No specific deadline'}</strong></p>
+  <h2>Steps to Take</h2>${(currentResult.steps||[]).map((s,i)=>`<div class="step">${i+1}. ${s}</div>`).join('')}
+  <h2>Your Rights</h2><p>${currentResult.rights||'—'}</p>
+  <h2>Full Explanation</h2><p>${currentResult.full_explanation||'—'}</p>
+  <div class="footer">Generated by Nyaay AI — Free legal clarity for every Indian citizen. This is not legal advice.</div>
+  </body></html>`);
+  printWin.document.close();
+  printWin.print();
+}
+
+// ============================================================
+// DRAFT REPLY
+// ============================================================
+async function generateReply() {
+  if(!currentResult) return;
+  const replySection=document.getElementById('replySection');
+  replySection.style.display='block';
+  document.getElementById('replyText').value='Generating reply letter…';
+  replySection.scrollIntoView({behavior:'smooth'});
+
+  const prompt=`Write a formal reply letter in English to this ${currentResult.notice_type}. The letter should:
+- Be addressed to the issuing authority
+- Acknowledge receipt of the notice
+- State that the recipient is taking necessary action
+- Request any extension if needed
+- Be polite and professional
+- Leave [YOUR NAME], [DATE], [YOUR ADDRESS] as placeholders
+
+Keep it under 200 words. Just the letter text, no preamble.
+
+Notice context: ${currentResult.what_happened}`;
+
+  try {
+    const resp=await fetch('http://localhost:3000/api/groq',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})});
+    const data=await resp.json();
+    document.getElementById('replyText').value = typeof data==='string' ? data : data.letter || data.text || JSON.stringify(data);
+  } catch(e) {
+    document.getElementById('replyText').value='Could not generate reply. Please try again.';
+  }
+}
+
+function copyReply(){
+  const t=document.getElementById('replyText');
+  t.select();
+  document.execCommand('copy');
+  alert('Letter copied to clipboard!');
+}
+
+// ============================================================
+// FOLLOW-UP CHAT
+// ============================================================
+async function sendChat() {
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg||!currentResult) return;
+
+  input.value='';
+  document.getElementById('chatSend').disabled=true;
+
+  const msgs=document.getElementById('chatMessages');
+  msgs.innerHTML+=`<div class="msg user">${msg}</div>`;
+  msgs.innerHTML+=`<div class="msg ai" id="streamMsg">…</div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+
+  const contextPrompt=`You are Nyaay AI, a helpful legal assistant. The user received this legal notice:
+
+Notice Type: ${currentResult.notice_type}
+Summary: ${currentResult.what_happened}
+Steps required: ${(currentResult.steps||[]).join('; ')}
+Deadline: ${currentResult.deadline_text||'none specified'}
+
+Answer the user's question in a simple, helpful way in the same language they asked. Be reassuring. If they ask in Hindi, answer in Hindi. Keep it concise and clear.
+
+User question: ${msg}`;
+
+  try {
+    const resp=await fetch('http://localhost:3000/api/groq',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:contextPrompt})});
+    const data=await resp.json();
+    const answer=typeof data==='string'?data:data.answer||data.text||JSON.stringify(data);
+    document.getElementById('streamMsg').textContent=answer;
+    document.getElementById('streamMsg').removeAttribute('id');
+  } catch(e){
+    document.getElementById('streamMsg').textContent='Sorry, could not get an answer. Try again.';
+  }
+  msgs.scrollTop=msgs.scrollHeight;
+  document.getElementById('chatSend').disabled=false;
+  input.focus();
+}
+
+// ============================================================
+// HISTORY
+// ============================================================
+function saveToHistory(result, preview) {
+  const history=JSON.parse(localStorage.getItem('nyaay_history')||'[]');
+  history.unshift({ type:result.notice_type, emoji:result.notice_type_emoji, risk:result.risk_score, date:new Date().toLocaleDateString('en-IN'), preview, result });
+  localStorage.setItem('nyaay_history', JSON.stringify(history.slice(0,10)));
+}
+
+function toggleHistory() {
+  const sec=document.getElementById('historySection');
+  const btn=document.getElementById('historyBtn');
+  const show=!sec.classList.contains('show');
+  sec.classList.toggle('show',show);
+  btn.classList.toggle('active',show);
+  if(show) renderHistory();
+}
+
+function renderHistory() {
+  const history=JSON.parse(localStorage.getItem('nyaay_history')||'[]');
+  const list=document.getElementById('historyList');
+  if(!history.length){ list.innerHTML='<div style="color:var(--muted);font-size:13px;padding:16px 0;">No past analyses yet.</div>'; return; }
+  list.innerHTML=history.map((h,i)=>`
+    <div class="history-item" onclick="restoreHistory(${i})">
+      <div class="hist-icon">${h.emoji||'📋'}</div>
+      <div class="hist-info"><h4>${h.type}</h4><p>${h.date} · ${h.preview.slice(0,60)}…</p></div>
+      <div class="hist-risk" style="color:${h.risk>=7?'var(--rose)':h.risk>=4?'var(--gold)':'var(--green)'}">${h.risk}/10</div>
+    </div>`).join('');
+}
+
+function restoreHistory(i) {
+  const history=JSON.parse(localStorage.getItem('nyaay_history')||'[]');
+  if(!history[i]) return;
+  currentResult=history[i].result;
+  displayResults(history[i].result,'');
+  toggleHistory();
+  document.getElementById('mainSection').scrollIntoView({behavior:'smooth'});
+}
+
+// ============================================================
+// SENIOR MODE
+// ============================================================
+function toggleSenior() {
+  document.body.classList.toggle('senior');
+  document.getElementById('seniorBtn').classList.toggle('active');
+}
+
+// ============================================================
+// IMPACT COUNTER
+// ============================================================
+function incrementCounter() {
+  count++;
+  localStorage.setItem('nyaay_count',count);
+  document.getElementById('impactCount').textContent=count.toLocaleString('en-IN');
+}
+
+// ============================================================
+// RESET
+// ============================================================
+function resetAll() {
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('loading').classList.remove('show');
+  document.getElementById('docText').value='';
+  document.getElementById('fileChip').classList.remove('show');
+  document.getElementById('dropZone').classList.remove('done');
+  document.getElementById('errBox').classList.remove('show');
+  document.getElementById('fileInput').value='';
+  document.getElementById('redactNotice').classList.remove('show');
+  document.getElementById('replySection').style.display='none';
+  document.getElementById('uploadTitle').textContent='Drop notice here or click to upload';
+  document.getElementById('uploadIcon').textContent='📄';
+  if(countdownInterval) clearInterval(countdownInterval);
+  if(isSpeaking){ speechSynthesis.cancel(); isSpeaking=false; }
+  currentResult=null;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showErr(msg){ const e=document.getElementById('errBox'); e.textContent=msg; e.classList.add('show'); }
+</script>
+</body>
+</html>
