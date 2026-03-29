@@ -61,6 +61,18 @@ Then open **http://localhost:3000** in your browser.
 
 **Pitch line:** *"Most citizens don't need a lawyer — they need to understand what the notice says. Nyaay AI does that in 30 seconds, free, in their own language."*
 
+<img width="1438" height="820" alt="Screenshot 2026-03-28 at 11 32 10 PM" src="https://github.com/user-attachments/assets/83b407bb-8c85-47ef-ae26-bbe662bbac86" />
+
+<img width="1437" height="820" alt="Screenshot 2026-03-28 at 11 32 46 PM" src="https://github.com/user-attachments/assets/d59e4ec9-ed59-4b65-a908-81eac80002b1" />
+
+<img width="1440" height="818" alt="Screenshot 2026-03-28 at 11 34 45 PM" src="https://github.com/user-attachments/assets/ea788964-0aa3-4f79-b077-90656c6c3ac0" />
+
+<img width="1440" height="820" alt="Screenshot 2026-03-28 at 11 35 04 PM" src="https://github.com/user-attachments/assets/daf0d4e4-0238-45ed-a7ed-0e8ab91b744f" />
+
+<img width="1440" height="819" alt="Screenshot 2026-03-28 at 11 35 33 PM" src="https://github.com/user-attachments/assets/dfa8b42d-ca24-42cb-a03d-16794f93996c" />
+
+
+
 ## 📁 File Structure
 ```
 nyaay-ai/
